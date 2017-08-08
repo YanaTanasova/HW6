@@ -1,0 +1,101 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+}
+
+
+
+input{
+	display: none;
+}
+
+
+.menu__button{
+	display: block;
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	background: #EED5D2;
+	cursor: pointer;
+	transition: background .3s;
+}
+
+/* menu button icon */
+
+.menu__button-icon{
+	display: block;
+	position: absolute;
+	top: 47%;
+	left: 17%;
+	right: 17%;
+	height: 4px;
+	background: #000;
+	transition: background 0s .3s;
+}
+
+.menu__button-icon:before,
+.menu__button-icon:after{
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: #000;
+	transition-duration: .3s, .3s, .3s;
+	transition-delay: .3s, 0s, .3s;
+}
+
+.menu__button-icon:before{
+	top: -10px;
+	transition-property: top, transform, background-color;
+}
+
+.menu__button-icon:after{
+	bottom: -10px;
+	transition-property: bottom, transform, background-color;
+}
+
+/* checked */
+
+input:checked ~ .menu__button{
+	background: #CD9B9B;
+}
+
+input:checked ~ .menu__button .menu__button-icon{
+	background: none;
+}
+
+input:checked ~ .menu__button .menu__button-icon:before{
+	top: 0;
+	transform: rotate(45deg);
+	background: #fff;
+	transition-delay: 0s, .3s, .3s;
+}
+
+input:checked ~ .menu__button .menu__button-icon:after{
+	bottom: 0;
+	transform: rotate(-45deg);
+	background: #fff;
+	transition-delay: 0s, .3s, .3s;
+}
+
+/* nav */
+
+.nav{
+	height: 100vh;
+	width: 300px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
+	transform: translateX(-100%);
+	transition: all .2s ease-in;
+}
+
+input:checked ~ .nav{
+	transform: translateX(0);
+}
